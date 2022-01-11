@@ -46,7 +46,7 @@ do {
 int square = width* height;
 Console.WriteLine(square);*/
 
-/// считаем площадб
+/// считаем площадь
 /// выводим ее на консоль
 /// 
 
@@ -140,7 +140,7 @@ public class programm
         }
     }
 }*/
-//прочитать про перечисления(enum) и флаги
+//прочитать про перечисления(enum) и флаги 
 
 /////////////////////1.1.7///////////////////////////
 ///{
@@ -297,9 +297,60 @@ public class programm
         Console.WriteLine(str);
     }
 }*/
- 
+
 ////////////////////////////////////////////////////
 /////////////////////1.2.3//////////////////////////
+/*class Programm
+{
+    static void Main(string[] args)
+    {
+        string yourString = Console.ReadLine();
+        string[] words = yourString.Split(new char[] { '!', ',', '.', '!', ' ', '?' });
+        int wordsLowFirstChar = 0;
+        List<string> list = new List<string>();
+
+        foreach (string s in words)
+        {
+            if (Char.IsLower(s[0]))
+            {
+                list.Add(s);
+                wordsLowFirstChar = list.Count;
+            }
+        }
+        Console.WriteLine("Слов , начинающихся со строчного символа: " + wordsLowFirstChar);
+    }
+}*/
 ////////////////////////////////////////////////////
 /////////////////////1.2.4//////////////////////////
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Введите текст: ");
+        string str = Console.ReadLine();
+        StringBuilder Strings = new StringBuilder();
+        var array = str.ToCharArray();
+        Strings.Append(Char.ToUpper(array[0]));
+        Strings.Append(array[1]);
+
+
+        for (int i = 2; i < array.Length; i++)
+        {
+            if (IsRightSymbol(array[i - 2]) && Char.IsLetter(array[i]))
+            {
+                Strings.Append(Char.ToUpper(array[i]));
+            }
+            else
+            {
+                Strings.Append(array[i]);
+            }
+        }
+        Console.WriteLine(Strings);
+
+    }
+    static bool IsRightSymbol(char c)
+    {
+        return c == '.' || c == '!' || c == '?' ;
+    }
+}
 ////////////////////////////////////////////////////
